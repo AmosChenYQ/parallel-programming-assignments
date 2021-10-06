@@ -1,0 +1,94 @@
++ ./determinant 4 1
+dimensions 4 threads 1
+# elapsed time (alloc): 3.398e-06s
+# elapsed time (init): 1.368e-06s
+# elapsed time (calc): 0.000581823s
+# elapsed time (overall): 0.000784079s
++ ./determinant 6 1
+dimensions 6 threads 1
+# elapsed time (alloc): 1.171e-06s
+# elapsed time (init): 4.88e-07s
+# elapsed time (calc): 0.00112766s
+# elapsed time (overall): 0.00122976s
++ ./determinant 8 2
+dimensions 8 threads 2
+# elapsed time (alloc): 3.701e-06s
+# elapsed time (init): 1.66e-06s
+# elapsed time (calc): 0.0166096s
+# elapsed time (overall): 0.0169047s
++ ./determinant 8 4
+dimensions 8 threads 4
+# elapsed time (alloc): 3.64e-06s
+# elapsed time (init): 1.618e-06s
+# elapsed time (calc): 0.00868925s
+# elapsed time (overall): 0.00892459s
++ ./determinant 8 6
+dimensions 8 threads 6
+# elapsed time (alloc): 1.454e-06s
+# elapsed time (init): 6.16e-07s
+# elapsed time (calc): 0.010887s
+# elapsed time (overall): 0.0110171s
++ ./determinant 8 8
+dimensions 8 threads 8
+# elapsed time (alloc): 1.305e-06s
+# elapsed time (init): 5.69e-07s
+# elapsed time (calc): 0.00771646s
+# elapsed time (overall): 0.0078866s
++ ./determinant 10 4
+dimensions 10 threads 4
+# elapsed time (alloc): 1.195e-06s
+# elapsed time (init): 5.58e-07s
+# elapsed time (calc): 0.454207s
+# elapsed time (overall): 0.454434s
++ ./determinant 10 6
+dimensions 10 threads 6
+# elapsed time (alloc): 1.222e-06s
+# elapsed time (init): 5.47e-07s
+# elapsed time (calc): 0.43753s
+# elapsed time (overall): 0.437757s
++ ./determinant 10 8
+dimensions 10 threads 8
+# elapsed time (alloc): 3.585e-06s
+# elapsed time (init): 1.813e-06s
+# elapsed time (calc): 0.449534s
+# elapsed time (overall): 0.449922s
++ ./determinant 12 4
+dimensions 12 threads 4
+# elapsed time (alloc): 4.24e-06s
+# elapsed time (init): 1.831e-06s
+# elapsed time (calc): 56.2796s
+# elapsed time (overall): 56.28s
++ ./determinant 12 6
+dimensions 12 threads 6
+# elapsed time (alloc): 1.441e-06s
+# elapsed time (init): 6.22e-07s
+# elapsed time (calc): 56.486s
+# elapsed time (overall): 56.4865s
++ ./determinant 12 8
+dimensions 12 threads 8
+# elapsed time (alloc): 4.21e-06s
+# elapsed time (init): 1.868e-06s
+# elapsed time (calc): 54.6203s
+# elapsed time (overall): 54.6209s
++ ./determinant 14 4
+dimensions 14 threads 4
+# elapsed time (alloc): 1.657e-06s
+# elapsed time (init): 7.72e-07s
+# elapsed time (calc): 12144.9s
+# elapsed time (overall): 12144.9s
++ ./determinant 14 6
+dimensions 14 threads 6
+# elapsed time (alloc): 4.425e-06s
+# elapsed time (init): 2.3e-06s
+# elapsed time (calc): 10640.8s
+# elapsed time (overall): 10640.8s
++ ./determinant 14 8
+dimensions 14 threads 8
+# elapsed time (alloc): 4.468e-06s
+# elapsed time (init): 2.139e-06s
+# elapsed time (calc): 10652.6s
+# elapsed time (overall): 10652.6s
++ ./determinant 16 4
+dimensions 16 threads 4
+# elapsed time (alloc): 5.93e-06s
+# elapsed time (init): 2.535e-06s

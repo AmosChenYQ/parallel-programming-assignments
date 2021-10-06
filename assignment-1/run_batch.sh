@@ -1,0 +1,20 @@
+#! /bin/bash -x
+./determinant 4 1 
+./determinant 6 1 
+./determinant 8 2 
+./determinant 8 4 
+./determinant 8 6 
+./determinant 8 8 
+./determinant 10 4 
+./determinant 10 6 
+./determinant 10 8
+./determinant 12 4 
+./determinant 12 6 
+./determinant 12 8 
+./determinant 14 4 
+./determinant 14 6 
+./determinant 14 8 
+./determinant 16 4 
+./determinant 16 6 
+./determinant 16 8 
+
