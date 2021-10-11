@@ -70,6 +70,12 @@ dimensions 10 threads 8
 # elapsed time (init): 1.813e-06s
 # elapsed time (calc): 0.449534s
 # elapsed time (overall): 0.449922s
++ ./determinant 12 1
+dimensions 12 threads 1
+# elapsed time (alloc): 1.413e-06s
+# elapsed time (init): 5.72e-07s
+# elapsed time (calc): 270.894s
+# elapsed time (overall): 270.894s
 + ./determinant 12 2
 dimensions 12 threads 2
 # elapsed time (alloc): 1.484e-06s
