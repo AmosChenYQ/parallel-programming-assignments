@@ -1,0 +1,9 @@
+#!/bin/bash
+#PBS -N mpi
+#PBS -l nodes=1:ppn=10
+#PBS -j oe
+
+nprocs=$(cat $PBS_NODEFILE | wc -l)
+log_file=run_batch_$nprocs.log
+cd $PBS_O_WORKDIR
+time mpirun -np $nprocs -machinefile $PBS_NODEFILE $PROGRAM >& $log_file

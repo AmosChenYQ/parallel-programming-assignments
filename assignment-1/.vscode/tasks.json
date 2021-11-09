@@ -1,0 +1,14 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "type": "shell",
+        "label": "C/C++: g++.exe build active file",
+        "command": "C:/mingw-w64/mingw64/bin/g++.exe",
+        "args": ["-O2", "-std=c++11", "-lpthread", "-g", "${file}", "-o", "${fileDirname}/${fileBasenameNoExtension}.exe"],
+        "options": {
+          "cwd": "C:/mingw-w64/mingw64/bin"
+        }
+      }
+    ]
+  }
