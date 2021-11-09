@@ -82,25 +82,31 @@ int64_t calculate_product(const std::vector<int64_t>& A, int64_t n,
 void calculate_determinant(const std::vector<int64_t>& A,
                            std::vector<int64_t>& minors, int64_t n,
                            int num_processes, int my_id) {
-  const int64_t chunk_size = SDIV(n, num_processes);
-  const int64_t lower = my_id * chunk_size;
-  const int64_t upper = std::min(n, lower + chunk_size);
+  int64_t my_chunk_size = n / num_processes;
 
-  std::vector<int64_t> minors_segment(chunk_size, 0);
+  if (my_id < n % num_processes) {
+    my_chunk_size++;
+  }
+
+  std::vector<int64_t> minors_segment(my_chunk_size, 0);
   std::vector<int> send_counts(num_processes, 0);
   std::vector<int> displacements(num_processes, 0);
 
   if (!my_id) {
-    std::cout << "chunk_size " << chunk_size << std::endl;
-    send_counts[num_processes - 1] = n % chunk_size;
-    for (int i = 0; i < num_processes - 1; i++) {
-      send_counts[i] = chunk_size;
+    for (int i = 0; i < num_processes; i++) {
+      send_counts[i] =
+          i < n % num_processes ? n / num_processes + 1 : n / num_processes;
     }
     for (int i = 1; i < num_processes; i++) {
       displacements[i] = displacements[i - 1] + send_counts[i - 1];
     }
+    // for (int i = 0; i < num_processes; i++) {
+    //   std::cout << send_counts[i] << " " << displacements[i] << std::endl;
+    // }
   }
 
+  int64_t lower = displacements[my_id];
+  int64_t upper = lower + my_chunk_size;
   for (int64_t col = lower; col < upper; ++col) {
     int64_t i = 0;
     std::vector<int64_t> short_sequence(n - 1);
@@ -118,9 +124,9 @@ void calculate_determinant(const std::vector<int64_t>& A,
         std::next_permutation(short_sequence.begin(), short_sequence.end()));
   }
 
-  MPI::COMM_WORLD.Gatherv(minors_segment.data(), upper - lower, MPI::LONG,
-                          minors.data(), send_counts.data(),
-                          displacements.data(), MPI::LONG, 0);
+  MPI::COMM_WORLD.Gatherv(
+      minors_segment.data(), my_chunk_size, MPI::LONG,
+      minors.data(), send_counts.data(), displacements.data(), MPI::LONG, 0);
 }
 
 int main(int argc, char* argv[]) {
@@ -148,7 +154,7 @@ int main(int argc, char* argv[]) {
 
   MPI::COMM_WORLD.Barrier();
   double end;
-  
+
   // check minors if they are correct
   if (!my_id) {
     for (auto index = 0u; index < minors.size(); ++index) {
